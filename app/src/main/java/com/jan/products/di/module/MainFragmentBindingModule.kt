@@ -1,5 +1,7 @@
 package com.jan.products.di.module
 
+import com.jan.products.ui.contact.ContactFragment
+import com.jan.products.ui.products.ProductsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -7,15 +9,10 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class MainFragmentBindingModule {
 
-    /*
     @ContributesAndroidInjector
-    abstract fun provideHomeFragment(): HomeFragment
+    abstract fun provideProductsFragment(): ProductsFragment
 
     @ContributesAndroidInjector
-    abstract fun provideMaintenanceFragment(): MaintenanceFragment
+    abstract fun provideContactFragment(): ContactFragment
 
-    @ContributesAndroidInjector
-    abstract fun provideDealersFragment(): DealersFragment
-
-    */
 }

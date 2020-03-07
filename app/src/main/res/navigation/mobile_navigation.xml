@@ -3,23 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_products">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.jan.products.ui.home.HomeFragment"
+        android:id="@+id/navigation_products"
+        android:name="com.jan.products.ui.products.ProductsFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_products" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.jan.products.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_contact"
+        android:name="com.jan.products.ui.contact.ContactFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_contact" />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.jan.products.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>
