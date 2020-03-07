@@ -52,6 +52,7 @@ dependencies {
     def rxJavaVersion = '2.1.1'
     def daggerVersion = '2.25.4'
     def retrofit_version = "2.7.1"
+    def room_version = "2.2.4"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -94,5 +95,9 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
     implementation "com.google.dagger:dagger-android:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
 }
 apply plugin: 'com.google.gms.google-services'

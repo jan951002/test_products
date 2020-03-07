@@ -5,6 +5,7 @@ import com.jan.products.base.BaseApplication
 import com.jan.products.di.module.ActivityBindingModule
 import com.jan.products.di.module.ApiModule
 import com.jan.products.di.module.ContextModule
+import com.jan.products.di.module.RoomModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -14,7 +15,7 @@ import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = [ContextModule::class, ApiModule::class, AndroidSupportInjectionModule::class, ActivityBindingModule::class])
+@Component(modules = [ContextModule::class, ApiModule::class, RoomModule::class, AndroidSupportInjectionModule::class, ActivityBindingModule::class])
 interface ApplicationComponent : AndroidInjector<DaggerApplication> {
 
     fun inject(application: BaseApplication?)

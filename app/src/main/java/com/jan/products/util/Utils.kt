@@ -2,11 +2,9 @@ package com.jan.products.util
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Typeface
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import android.util.Patterns
 
 class Utils {
 
