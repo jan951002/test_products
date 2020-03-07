@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">test_products</string>
+    <string name="app_name">Test products</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_products">Productos</string>
     <string name="title_contact">Contacto</string>
+    <string name="notificationID">Test products</string>
 </resources>

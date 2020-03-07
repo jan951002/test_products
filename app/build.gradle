@@ -69,6 +69,10 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation "com.squareup.picasso:picasso:2.5.2"
+    implementation('com.google.android.gms:play-services:12.0.1') {
+        exclude group: 'com.android.support'
+    }
+    implementation 'com.google.maps:google-maps-services:0.2.5'
 
     //LifeCycle
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
@@ -91,3 +95,4 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
 }
+apply plugin: 'com.google.gms.google-services'

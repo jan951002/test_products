@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.awareness.state.BeaconState.TypeFilter.with
 import com.jan.products.R
 import com.jan.products.data.model.Product
 import com.jan.products.util.CircleTransform
