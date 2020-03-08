@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -11,10 +12,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jan.products.R
 import com.jan.products.base.BaseActivity
 import com.jan.products.location.LocationRequestService
+import com.jan.products.ui.dialog.ExitDialog
 
 class MainActivity : BaseActivity() {
 
     private lateinit var _trackerLocation: LocationRequestService
+    private lateinit var navController: NavController
+    private lateinit var exitDialog: ExitDialog
 
     override fun layoutRes(): Int {
         return R.layout.activity_main
@@ -24,9 +28,8 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        exitDialog = ExitDialog(this)
+        navController = findNavController(R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_products,
@@ -87,6 +90,16 @@ class MainActivity : BaseActivity() {
                     )
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun onBackPressed() {
+        if (navController.currentDestination?.id == R.id.navigation_products) {
+            if (exitDialog.isShowing) {
+                exitDialog.dismiss()
+            }
+            exitDialog.show()
+        } else
+            super.onBackPressed()
     }
 
     companion object {

@@ -3,8 +3,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_products">Productos</string>
-    <string name="title_contact">Contacto</string>
+    <string name="title_products">Nuestros productos</string>
+    <string name="title_contact">Contáctenos</string>
     <string name="notification_id">Test products</string>
     <string name="google_maps_key">AIzaSyCirotNILVLzW616HCVH1AbkSlLRc6jqmc</string>
     <string name="hint_name">Nombre</string>
@@ -13,8 +13,12 @@
     <string name="error_empty_field">Campo obligatorio</string>
     <string name="msg_sent_contact">Contacto enviado</string>
     <string name="msg_no_sent_contact">No se pudo enviar el contacto, por favor, intente mas tarde</string>
-    <string name="lab_starting">Iniciando....</string>
+    <string name="lab_starting">Iniciando...</string>
     <string name="lab_login">Login</string>
     <string name="hint_user_name">Nombre de usuario</string>
     <string name="hint_password">Contraseña</string>
+    <string name="lab_exit">Salir</string>
+    <string name="lab_no">No</string>
+    <string name="lab_yes">Si</string>
+    <string name="lab_exit_confirm">¿estás seguro de que quieres salir de la aplicación?</string>
 </resources>

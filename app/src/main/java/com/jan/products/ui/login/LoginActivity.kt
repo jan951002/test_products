@@ -9,6 +9,7 @@ import com.jan.products.R
 import com.jan.products.base.BaseActivity
 import com.jan.products.data.preferences.SharedPreferencesManager
 import com.jan.products.factory.ViewModelFactory
+import com.jan.products.ui.dialog.ExitDialog
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
@@ -17,6 +18,7 @@ class LoginActivity : BaseActivity() {
     var viewModelFactory: ViewModelFactory? = null
         @Inject set
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var exitDialog: ExitDialog
 
     override fun layoutRes(): Int {
         return R.layout.activity_login
@@ -26,7 +28,7 @@ class LoginActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         loginViewModel =
             ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
-
+        exitDialog = ExitDialog(this)
         observableViewModel()
 
         btnLogin.setOnClickListener {
@@ -62,7 +64,6 @@ class LoginActivity : BaseActivity() {
             if (expirationDate != null) {
                 SharedPreferencesManager.setExpirationDate(this, expirationDate)
                 val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("fragmentTag", -1)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
                         Intent.FLAG_ACTIVITY_CLEAR_TOP or
                         Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -70,5 +71,12 @@ class LoginActivity : BaseActivity() {
                 finish()
             }
         })
+    }
+
+    override fun onBackPressed() {
+        if (exitDialog.isShowing) {
+            exitDialog.dismiss()
+        }
+        exitDialog.show()
     }
 }

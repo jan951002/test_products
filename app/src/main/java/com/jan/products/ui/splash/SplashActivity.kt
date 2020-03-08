@@ -23,12 +23,17 @@ class SplashActivity : BaseActivity() {
         Handler().postDelayed({
             if (SharedPreferencesManager.getExpirationDate(this@SplashActivity) != "-") {
                 val mainIntent = Intent(this@SplashActivity, MainActivity::class.java)
+                mainIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(mainIntent)
                 finish()
             } else {
-                val tourIntent = Intent(this@SplashActivity, LoginActivity::class.java)
-                tourIntent.putExtra("pageTour", "-")
-                startActivity(tourIntent)
+                val loginIntent = Intent(this@SplashActivity, LoginActivity::class.java)
+                loginIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(loginIntent)
                 finish()
             }
         }, SPLASH_TIME)
