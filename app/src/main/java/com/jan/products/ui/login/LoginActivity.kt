@@ -1,19 +1,15 @@
 package com.jan.products.ui.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.google.android.material.snackbar.Snackbar
-import com.jan.products.MainActivity
+import com.jan.products.ui.main.MainActivity
 import com.jan.products.R
 import com.jan.products.base.BaseActivity
 import com.jan.products.data.preferences.SharedPreferencesManager
 import com.jan.products.factory.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.coroutines.MainScope
 import javax.inject.Inject
 
 class LoginActivity : BaseActivity() {

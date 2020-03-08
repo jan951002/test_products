@@ -11,7 +11,7 @@ import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
-import com.jan.products.MainActivity
+import com.jan.products.ui.main.MainActivity
 import com.jan.products.ui.contact.ContactFragment
 import com.jan.products.util.Singleton
 import java.text.DateFormat

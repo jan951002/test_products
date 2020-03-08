@@ -1,4 +1,4 @@
-package com.jan.products
+package com.jan.products.ui.main
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -6,9 +6,9 @@ import android.os.Bundle
 import androidx.core.app.ActivityCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.jan.products.R
 import com.jan.products.base.BaseActivity
 import com.jan.products.location.LocationRequestService
 
@@ -29,7 +29,8 @@ class MainActivity : BaseActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_products, R.id.navigation_products
+                R.id.navigation_products,
+                R.id.navigation_products
             )
         )
         //setupActionBarWithNavController(navController, appBarConfiguration)

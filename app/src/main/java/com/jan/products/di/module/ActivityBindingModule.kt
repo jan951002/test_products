@@ -1,6 +1,6 @@
 package com.jan.products.di.module
 
-import com.jan.products.MainActivity
+import com.jan.products.ui.main.MainActivity
 import com.jan.products.ui.login.LoginActivity
 import com.jan.products.ui.splash.SplashActivity
 import dagger.Module

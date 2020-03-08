@@ -11,7 +11,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.jan.products.MainActivity
+import com.jan.products.ui.main.MainActivity
 import com.jan.products.R
 
 class MessagingService : FirebaseMessagingService() {

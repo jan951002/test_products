@@ -11,7 +11,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.snackbar.Snackbar
-import com.jan.products.MainActivity
+import com.jan.products.ui.main.MainActivity
 import com.jan.products.R
 import com.jan.products.base.BaseFragment
 import com.jan.products.factory.ViewModelFactory

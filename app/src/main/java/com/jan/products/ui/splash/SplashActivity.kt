@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import com.jan.products.MainActivity
+import com.jan.products.ui.main.MainActivity
 import com.jan.products.R
 import com.jan.products.base.BaseActivity
 import com.jan.products.data.preferences.SharedPreferencesManager
