@@ -51,7 +51,7 @@ class MessagingService : FirebaseMessagingService() {
         )
         createChannel(mNotificationManager)
         val mBuilder: NotificationCompat.Builder =
-            NotificationCompat.Builder(this, getString(R.string.notificationID))
+            NotificationCompat.Builder(this, getString(R.string.notification_id))
                 .setSmallIcon(icon)
                 .setContentTitle(resources.getString(R.string.app_name))
                 .setTicker(msg)
@@ -76,8 +76,8 @@ class MessagingService : FirebaseMessagingService() {
 
     private fun createChannel(notificationManager: NotificationManager) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = getString(R.string.notificationID)
-            val description = getString(R.string.notificationID)
+            val name = getString(R.string.notification_id)
+            val description = getString(R.string.notification_id)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val mChannel = NotificationChannel(name, name, importance)
             //val mChannel = NotificationChannelGroup(name, name)

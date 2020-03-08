@@ -12,6 +12,7 @@ import com.google.android.gms.location.*
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.jan.products.MainActivity
+import com.jan.products.ui.contact.ContactFragment
 import com.jan.products.util.Singleton
 import java.text.DateFormat
 import java.util.*
@@ -34,6 +35,7 @@ class LocationRequestService(context: MainActivity) : LocationListener,
     private var mFusedLocationClient: FusedLocationProviderClient? = null
     private var mSettingsClient: SettingsClient? = null
     private var mLocationCallback: LocationCallback? = null
+    var contactFragment: ContactFragment? = null
 
     init {
         this.mContext = context
@@ -96,6 +98,11 @@ class LocationRequestService(context: MainActivity) : LocationListener,
             //stopGps()
             singleton.latitude = latitude
             singleton.longitude = longitude
+            if (contactFragment != null) {
+                contactFragment!!.latitudeLocation = mCurrentLocation!!.latitude
+                contactFragment!!.longitudeLocation = mCurrentLocation!!.longitude
+                contactFragment!!.location(mCurrentLocation!!)
+            }
         }
     }
 

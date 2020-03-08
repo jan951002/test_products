@@ -5,5 +5,9 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_products">Productos</string>
     <string name="title_contact">Contacto</string>
-    <string name="notificationID">Test products</string>
+    <string name="notification_id">Test products</string>
+    <string name="google_maps_key">AIzaSyCirotNILVLzW616HCVH1AbkSlLRc6jqmc</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone">Teléfono</string>
 </resources>
