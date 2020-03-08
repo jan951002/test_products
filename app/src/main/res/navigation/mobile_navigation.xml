@@ -8,13 +8,17 @@
     <fragment
         android:id="@+id/navigation_products"
         android:name="com.jan.products.ui.products.ProductsFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_products" />
+        android:label="@string/title_products"
+        tools:layout="@layout/fragment_products">
+        <action
+            android:id="@+id/action_navigation_products_to_navigation_contact"
+            app:destination="@id/navigation_contact" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_contact"
         android:name="com.jan.products.ui.contact.ContactFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_contact"
         tools:layout="@layout/fragment_contact" />
 
 </navigation>

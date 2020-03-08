@@ -3,18 +3,22 @@ package com.jan.products.ui.contact
 import android.location.Location
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.material.snackbar.Snackbar
 import com.jan.products.MainActivity
 import com.jan.products.R
 import com.jan.products.base.BaseFragment
 import com.jan.products.factory.ViewModelFactory
 import com.jan.products.location.LocationRequestService
+import kotlinx.android.synthetic.main.fragment_contact.*
 import javax.inject.Inject
+
 
 class ContactFragment : BaseFragment(), OnMapReadyCallback, GoogleMap.OnCameraIdleListener {
 
@@ -44,14 +48,24 @@ class ContactFragment : BaseFragment(), OnMapReadyCallback, GoogleMap.OnCameraId
         fragmentTransaction.add(R.id.map, mapAcceptService)
         fragmentTransaction.commit()
         mapAcceptService.getMapAsync(this)
+
+        observableViewModel()
+
+        btnContact.setOnClickListener {
+            removeErrors()
+            if (validateEmpty())
+                contactViewModel.insertContact(
+                    etName.text.toString(),
+                    etEmail.text.toString(),
+                    etNumberPhone.text.toString().toLong()
+                )
+        }
     }
 
     override fun onMapReady(map: GoogleMap?) {
         this.googleMap = map!!
-        if (googleMap != null) {
-            googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
-            googleMap.uiSettings.isScrollGesturesEnabled = true
-        }
+        googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+        googleMap.uiSettings.isScrollGesturesEnabled = true
 
         googleMap.setOnMapLoadedCallback {
             loadMap = true
@@ -93,6 +107,71 @@ class ContactFragment : BaseFragment(), OnMapReadyCallback, GoogleMap.OnCameraId
                 ), 16f
             )
         )
+    }
+
+    private fun validateEmpty(): Boolean {
+        var result = true
+        when {
+            etName.text.toString() == "" -> {
+                tilName.error = getString(R.string.error_empty_field)
+                result = false
+            }
+            etEmail.text.toString() == "" -> {
+                tilEmail.error = getString(R.string.error_empty_field)
+                result = false
+            }
+            etNumberPhone.text.toString() == "" -> {
+                tilNumberPhone.error = getString(R.string.error_empty_field)
+                result = false
+            }
+        }
+        return result
+    }
+
+    private fun removeErrors() {
+        tilName.error = null
+        tilEmail.error = null
+        tilNumberPhone.error = null
+    }
+
+    private fun clearForm() {
+        etName.setText("")
+        etEmail.setText("")
+        etNumberPhone.setText("")
+    }
+
+    private fun observableViewModel() {
+        contactViewModel.insertContactError.observe(viewLifecycleOwner, Observer { error ->
+            if (error) {
+                println("insert error")
+                val snackbar = Snackbar
+                    .make(
+                        view!!,
+                        activity!!.getString(R.string.msg_no_sent_contact),
+                        Snackbar.LENGTH_LONG
+                    )
+                snackbar.show()
+            } else {
+                println("Inserted")
+                val snackbar = Snackbar
+                    .make(
+                        view!!,
+                        activity!!.getString(R.string.msg_sent_contact),
+                        Snackbar.LENGTH_LONG
+                    )
+                snackbar.show()
+                clearForm()
+                removeErrors()
+            }
+        })
+
+        contactViewModel.insertContactLoading.observe(viewLifecycleOwner, Observer { loading ->
+            if (loading) {
+                println("Loading...")
+            } else {
+                println("No Loading")
+            }
+        })
     }
 
 }

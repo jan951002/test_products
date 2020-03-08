@@ -10,4 +10,7 @@
     <string name="hint_name">Nombre</string>
     <string name="hint_email">Email</string>
     <string name="hint_phone">Teléfono</string>
+    <string name="error_empty_field">Campo obligatorio</string>
+    <string name="msg_sent_contact">Contacto enviado</string>
+    <string name="msg_no_sent_contact">No se pudo enviar el contacto, por favor, intente mas tarde</string>
 </resources>

@@ -14,7 +14,7 @@ import com.jan.products.location.LocationRequestService
 
 class MainActivity : BaseActivity() {
 
-    private lateinit var trackerLocation: LocationRequestService
+    private lateinit var _trackerLocation: LocationRequestService
 
     override fun layoutRes(): Int {
         return R.layout.activity_main
@@ -32,7 +32,7 @@ class MainActivity : BaseActivity() {
                 R.id.navigation_products, R.id.navigation_products
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
         validatePermissions()
@@ -66,7 +66,7 @@ class MainActivity : BaseActivity() {
                 )
             }
         } else {
-            trackerLocation =
+            _trackerLocation =
                 LocationRequestService(
                     this
                 )
@@ -80,7 +80,7 @@ class MainActivity : BaseActivity() {
     ) {
         if (requestCode == REQUEST_LOCATION && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             if (grantResults.isNotEmpty())
-                trackerLocation =
+                _trackerLocation =
                     LocationRequestService(
                         this
                     )
