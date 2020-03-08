@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.jan.products.factory.ViewModelFactory
 import com.jan.products.ui.contact.ContactViewModel
+import com.jan.products.ui.login.LoginViewModel
 import com.jan.products.ui.products.ProductsViewModel
 import com.jan.products.util.ViewModelKey
 import dagger.Binds
@@ -22,6 +23,11 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ContactViewModel::class)
     abstract fun bindContactViewModel(contactViewModel: ContactViewModel?): ViewModel?
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LoginViewModel::class)
+    abstract fun bindLoginViewModel(loginViewModel: LoginViewModel?): ViewModel?
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory?): ViewModelProvider.Factory?

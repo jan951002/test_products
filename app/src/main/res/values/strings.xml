@@ -13,4 +13,8 @@
     <string name="error_empty_field">Campo obligatorio</string>
     <string name="msg_sent_contact">Contacto enviado</string>
     <string name="msg_no_sent_contact">No se pudo enviar el contacto, por favor, intente mas tarde</string>
+    <string name="lab_starting">Iniciando....</string>
+    <string name="lab_login">Login</string>
+    <string name="hint_user_name">Nombre de usuario</string>
+    <string name="hint_password">Contraseña</string>
 </resources>
